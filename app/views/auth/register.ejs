@@ -1,0 +1,71 @@
+<%- include('../includes/header') %>
+
+<!-- Font Icon -->
+<link rel="stylesheet" href="/fonts/material-icon/css/material-design-iconic-font.min.css">
+
+<!-- Sign up form -->
+<section class="signup">
+    <div class="container">
+        <div class="signup-content">
+            <div class="signup-form">
+                <h2 class="form-title">Sign up</h2>
+                <form method="post" class="register-form" id="register-form">
+                    <div class="form-group">
+                        <label for="name"><i class="zmdi zmdi-account material-icons-name"></i></label>
+                        <input type="text" name="username" id="name" placeholder="Your Name" value="<% if(typeof flash.lastIntroduced != "undefined" && flash.lastIntroduced.username) { %><%= flash.lastIntroduced.username %><% } %>"/>
+                        <% if(typeof flash.errors != "undefined" && flash.errors.username ) { %>
+                            <div class="error">
+                                <%= flash.errors.username %>
+                            </div>
+                        <% } %>
+                    </div>         
+                    <div class="form-group">
+                        <label for="email"><i class="zmdi zmdi-email"></i></label>
+                        <input type="email" name="email" id="email" placeholder="Your Email" value="<% if(typeof flash.lastIntroduced != "undefined" && flash.lastIntroduced.email) { %><%= flash.lastIntroduced.email %><% } %>"/>
+                        <% if(typeof flash.errors != "undefined" && flash.errors.email ) { %>
+                            <div class="error">
+                                <%= flash.errors.email %>
+                            </div>
+                        <% } %>
+                    </div>
+                    <div class="form-group">
+                        <label for="pass"><i class="zmdi zmdi-lock"></i></label>
+                        <input type="password" name="password" id="pass" placeholder="Password"/>
+                        <% if(typeof flash.errors != "undefined" && flash.errors.password ) { %>
+                            <div class="error">
+                                <%= flash.errors.password %>
+                            </div>
+                        <% } %>
+                    </div>
+                    <div class="form-group">
+                        <label for="re-pass"><i class="zmdi zmdi-lock-outline"></i></label>
+                        <input type="password" name="repeatPassword" id="re_pass" placeholder="Repeat your password"/>
+                        <% if(typeof flash.errors != "undefined" && flash.errors.repeatPassword ) { %>
+                            <div class="error">
+                                <%= flash.errors.repeatPassword %>
+                            </div>
+                        <% } %>
+                    </div>
+                    <div class="form-group">
+                        <input type="checkbox" name="agreeTerm" id="agree-term" class="agree-term" />
+                        <label for="agree-term" class="label-agree-term"><span><span></span></span>I agree all statements in  <a href="#" class="term-service">Terms of service</a></label>
+                        <% if(typeof flash.errors != "undefined" && flash.errors.agreeTerm ) { %>
+                            <div class="error">
+                                <%= flash.errors.agreeTerm %>
+                            </div>
+                        <% } %>
+                    </div>
+                    <div class="form-group form-button">
+                        <input type="submit" name="signup" id="signup" class="form-submit" value="Register"/>
+                    </div>
+                </form>
+            </div>
+            <div class="signup-image">
+                <figure><img src="/images/signup-image.jpg" alt="sing up image"></figure>
+                <a href="#" class="signup-image-link">I am already member</a>
+            </div>
+        </div>
+    </div>
+</section>
+
+<%- include('../includes/footer') %>

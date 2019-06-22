@@ -1,0 +1,35 @@
+<%- include('../includes/header') %>
+
+<!-- Logo site -->
+<a href="/"><img src="/images/logo.png" class="rounded" alt=""></a>
+
+<% if (typeof session.user != "undefined") { %>
+  <div class="loginBtn">
+    Hi, <a href="/profile/show"><%= session.user.username %></a>
+  </div>
+  <div class="loginLogout">
+    <%= lang['views.slash'] %> <a href="/auth/logout">Logout</a>
+  </div>
+<% } else { %>
+  <div class="loginBtn">
+    <a href="/auth/login">Login</a>
+  </div> 
+  <div class="registerBtn">
+    <a href="/auth/register">Register</a>
+  </div>
+<% } %>
+
+<!-- Bootstrap form -->
+<div class="form-inline"> 
+  <div class="form-group mx-sm-3 mb-2">
+    <input type="text" name="url" class="form-control" placeholder="Paste a long url">
+  </div>
+
+  <!-- Button Shortenin Url -->
+  <button type="submit" class="btn btn-primary mb-2" id="btnShorten" style="display: inline;">Shorten</button>
+
+  <!-- Button Copy Url-->
+  <button type="submit" class="btn btn-primary mb-2" id="btnCopy" style="display: none;">Copy</button>
+</div>
+
+<%- include('../includes/footer') %>

@@ -1,0 +1,37 @@
+<%- include('../includes/header') %>
+
+    <div class="usernameTxt">
+        <%= lang['views.hi'] %> <a href="/profile/show"><%= session.user.username %></a>
+    </div>
+    <div class="logoutTxt">
+        <%= lang['views.slash'] %> <a href="/auth/logout"><%= lang['views.logoutTxt'] %></a>
+    </div>
+
+    <% if (typeof items != "undefined" && items.length > 0) { %>
+        <% let number = 1 %>
+        <table class="table table-striped">
+            <tr>
+                <th>№</th>
+                <th>Link</th>
+                <th>Key</th> 
+                <th>Visits</th>
+                <th>Date</th>
+            </tr>
+            <% items.forEach(function(item) { %><br>
+                <tr>
+                    <td><%= number %></td>
+                    <td><a href="/profile/link/<%= item._id %>"><%= item.url %></a></td>
+                    <td><%= item.key %></td>
+                    <td><%= item.visits.length %></td>
+                    <td><%= item.date %></td>
+                </tr>
+                <% number++ %>
+            <% }); %>
+        </table>
+    <% } %>
+
+<div class="goToHomepageTxt">
+    <a href="/"><%= lang['views.shortenTxt'] %></a>
+</div>
+
+<%- include('../includes/footer') %>
