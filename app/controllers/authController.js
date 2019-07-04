@@ -124,7 +124,7 @@ module.exports.handleLogin = async function(req, res){
         await login(req, res, user);  
 
         //If everything went wrong and there is no error we redirect to the profile page
-        res.redirect('/profile/show');
+        res.redirect('/profile/links/browse');
     }
     catch (e){
 

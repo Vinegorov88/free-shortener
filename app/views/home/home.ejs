@@ -5,7 +5,7 @@
 
 <% if (typeof session.user != "undefined") { %>
   <div class="loginBtn">
-    Hi, <a href="/profile/show"><%= session.user.username %></a>
+    Hi, <a href="/profile/links/browse"><%= session.user.username %></a>
   </div>
   <div class="loginLogout">
     <%= lang['views.slash'] %> <a href="/auth/logout">Logout</a>

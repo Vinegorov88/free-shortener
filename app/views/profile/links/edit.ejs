@@ -1,0 +1,28 @@
+<%- include('../../includes/header') %>
+
+    <div class="usernameTxt">
+        <%= lang['views.hi'] %> <a href="/profile/links/browse"><%= session.user.username %></a>
+    </div>
+    <div class="logoutTxt">
+        <%= lang['views.slash'] %> <a href="/auth/logout"><%= lang['views.logoutTxt'] %></a>
+    </div>
+
+    <div class="title-edit">Editing the link</div>
+    <div class="table-edit">
+        <table class="table table-striped"><br>
+            <tr>
+                <th>Link</th>
+                <th>Date</th>
+                <th></th>
+            </tr>
+            <tr>
+                <form method="post" action="/profile/links/change/<%= item.id %>">
+                    <td><input type="url" name="url" value="<%= item.url %>"></td>  
+                    <td><%= item.date %></td>
+                    <td><input type="submit" value="Save"/></td>
+                </form>
+            </tr>
+        </table>
+    </div>
+
+<%- include('../../includes/footer') %>

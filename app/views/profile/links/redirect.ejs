@@ -1,0 +1,27 @@
+<%- include('../../includes/header') %>
+
+<div id="msg"></div>
+
+<script>
+    function redirect(){
+        document.getElementById('msg').innerHTML = 'Please wait you be redirected after <span id="count">5</span> seconds...';
+
+        let count = 5;
+
+        setInterval(function(){
+
+            count--;
+
+            document.getElementById('count').innerHTML = count;
+
+            if(count == 0){
+                window.location.href = '<%= link %>';
+            }
+
+        }, 1000)
+    }
+    redirect();   
+</script>
+
+<%- include('../../includes/footer') %>
+

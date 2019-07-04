@@ -79,7 +79,7 @@ module.exports.createURL = async function(req, res){
 //Forward to the original link
 module.exports.redirect = function(req, res){
 
-    let key, date, ipAddress, visit;
+    let key, date, ipAddress, visit, link;
 
     //We take the key of the submitted link
     key = req.params.key;
@@ -110,9 +110,12 @@ module.exports.redirect = function(req, res){
 
             //We saved
             url.save();
+       
+            //We take a link
+            link = url.url;
 
             //Redirect to the original link
-            res.redirect(url.url);
+            res.render('profile/links/redirect', {link: link});   
         } 
     });
 }

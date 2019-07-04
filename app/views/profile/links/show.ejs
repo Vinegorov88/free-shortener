@@ -1,0 +1,51 @@
+<%- include('../../includes/header') %>
+
+    <div class="usernameTxt">
+        <%= lang['views.hi'] %> <a href="/profile/links/browse"><%= session.user.username %></a>
+    </div>
+    <div class="logoutTxt">
+        <%= lang['views.slash'] %> <a href="/auth/logout"><%= lang['views.logoutTxt'] %></a>
+    </div>
+
+    <div class="container-graphics">
+        <canvas id="myChart" width="1000" height="400"></canvas>
+        <script>
+            const ctx = document.getElementById('myChart').getContext('2d');
+            const myChart = new Chart(ctx, {
+                type: 'line',
+                data: {
+                    labels: '<%= Object.keys(visits) %>'.split(","),
+                    datasets: [{
+                        label: 'Макс.посещения',
+                        data: '<%= Object.values(visits) %>'.split(","),
+                        backgroundColor: 'orange',
+                        borderColor: 'black',
+                        borderWidth: 0.5,
+                        hoverBorderWidth: 2,
+                        hoverBorderColor: 'black'
+                    }]
+                },
+                options: {
+                    legend: {
+                        display: true,
+                        position: "top",
+                    },
+                    title: {
+                        display: true,
+                        text: 'Графика с брой посещения на линка за последните 30 дни',
+                        fontSize: 14
+                    },
+                    scales: {
+                        yAxes: [{
+                            ticks: {
+                                beginAtZero: true,
+                                fontSize: 10
+                            }
+                        }]
+                    }
+                }         
+            });
+        </script>
+    </div>
+
+<%- include('../../includes/footer') %>

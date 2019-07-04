@@ -723,3 +723,39 @@ table, th, td {
   margin-right: auto;
   position: absolute;
 }
+
+.table-edit{
+  width: 750px;
+  height: 100px;
+  left: 0px;
+  right: 0px;
+  margin-top: 35px;
+  margin-left: auto;
+  margin-right: auto;
+  position: relative;
+}
+
+.title-edit{
+  width: 450px;
+  height: 40px;
+  left: 150px;
+  right: 0px;
+  margin-top: 40px;
+  font-size: 21px;
+  margin-left: auto;
+  margin-right: auto;
+  position: relative;
+}
+
+#msg{
+  width: 600px;
+  height: 40px;
+  left: 75px;
+  right: 0px;
+  margin-top: 100px;
+  margin-left: auto;
+  margin-right: auto;
+  font-size: 22px;
+  font-style: oblique;
+  position: relative;
+}

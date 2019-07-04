@@ -14,8 +14,10 @@ router.post('/auth/register', isNotLoggedIn, authController.handleRegister);
 router.get('/auth/login', isNotLoggedIn, authController.login);
 router.post('/auth/login', isNotLoggedIn, authController.handleLogin);
 router.get('/auth/logout', isLoggedIn, authController.logout);
-router.get('/profile/show', isLoggedIn, profileController.urls);
-router.get('/profile/link/:id', isLoggedIn, profileController.show);
+router.get('/profile/links/browse', isLoggedIn, profileController.browse);
+router.get('/profile/links/show/:id', isLoggedIn, profileController.show);
+router.get('/profile/links/edit/:id', isLoggedIn, profileController.edit);
+router.post('/profile/links/change/:id', isLoggedIn, profileController.change);
 router.post('/url/short', urlController.createURL);
 router.get('/:key', urlController.redirect);
 
